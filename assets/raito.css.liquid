@@ -1,0 +1,59 @@
+ .raito{
+background-color:#EDE2CA;
+}
+.bg_img::after {
+  background: {{'bg_ryushi.png' | asset_url }} ;
+  background-repeat: repeat;
+}
+.slides {
+  list-style-type:none;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;	position: absolute;
+	overflow: hidden;
+	width: 120%;
+
+}
+
+li {
+	transform: translateX(0px);
+	transition: 1s;
+}
+
+
+/* external css: flickity.css */
+
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+.carousel {
+  margin-top:25px;
+}
+
+.carousel-cell {
+  width: 100%;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+  display: inline-block;
+  text-align: center;
+}
+
+.carousel-cell.is-selected {
+  background: #ED2;
+}
+
+/* cell number */
+/*
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(carousel-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+*/

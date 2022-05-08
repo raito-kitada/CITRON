@@ -1,0 +1,154 @@
+
+<!-- Flickity HTML init
+  "groupCells"
+-->
+<div class="carousel" data-flickity='{ "groupCells": true }'>
+  {% comment %}
+  {% for block in section.blocks %}
+    <!--li style="  list-style-type:none;">
+      <img class="carousel-cell category_img" src="{{block.settings.slide_image | img_url: '2048x' }}" style="width:60%;height:auto;" >
+      {{collection.description}}
+    </li-->
+  {% endfor %}
+  {% endcomment %}
+  {% for product in collections %}
+  <li style="list-style-type:none;">
+    <div class="carousel-cell">
+      <img class="category_img" src="{{product.image | img_url: '2048x' }}" style="width:60%;height:auto;" >
+      <p style="color:#004c3d">{{product.title}}</p> 
+    </div>
+  </li>
+  {% endfor %}
+</div>
+
+{% comment %}
+{% for product in collections %}
+ {{ product.title }}
+{% endfor %}
+{% for block in section.blocks %}
+  <div class="main-carousel">
+    <div class="carousel-cell">
+      <img src="{{block.settings.slide_image | img_url: '2048x' }}" style="width:50px;height:auto;" >
+    </div>
+  </div>
+{% endfor %}
+
+{% for block in section.blocks %}
+     <div style="background: url({{block.settings.slide_image | img_url: '2048x'}});">
+          <div style="color: {{ block.settings.slide_color }}">
+               <div>
+                   <div>
+                     <h1>{{ block.settings.slide_title}}</h1>
+                    <p>
+                      {{ block.settings.slide_text }}
+                    </p>
+                    <a href="#">{{ block.settings.slide_link }}<i class="icon-bag"> </i></a>
+                   </div>
+              </div>
+         </div>
+    </div>
+{% endfor %}
+<ul class="slides">
+  {% for block in section.blocks %}
+    <li>
+      <img class="category_img" src="{{block.settings.slide_image | img_url: '2048x' }}" style="width:60%;height:auto;" >
+    </li>
+  {% endfor %}
+</ul>
+<!--button class="change-btn prev-btn"><</button>
+<button class="change-btn next-btn">></button -->
+
+<script>
+var ActiveSlideNum = 0;//現在のスライドの位置
+var count = $("li").length;//スライドの数
+var imgWidth = $(".category_img").width();//imgのwidthを取得
+console.log("imgWidth"+imgWidth);
+$(".next-btn").after("<div class='index-btns'></div>");
+
+for (var i = 0; i < count; i++) {
+	$(".index-btns").append("<button class='index-btn'>" + (i + 1) + "</button>");
+}
+
+$(".index-btn").eq(0).addClass("js-btn-active");
+
+//現在のスライドが何枚目かによって前後のボタンを消去する関数
+function toggleChangeBtn() {
+	var slideIndex = $(".index-btn").index($(".js-btn-active"));
+	$(".change-btn").show();
+	if (slideIndex == 0) {
+		$(".prev-btn").hide();
+	} else if (slideIndex == count - 1) {
+		$(".next-btn").hide();
+	}
+}
+
+//change-btnクラスを持つボタンをクリックしたときの処理
+$(".change-btn").click(function () {
+	var $displaySlide = $(".js-btn-active");
+
+	$displaySlide.removeClass("js-btn-active");
+	if ($(this).hasClass("next-btn")) {
+		ActiveSlideNum++;
+		$("li").css("transform","translateX(" + -imgWidth * ActiveSlideNum + "px)");
+		$displaySlide.next().addClass("js-btn-active");
+	} else {
+		ActiveSlideNum--;
+		$("li").css("transform","translateX(" + -imgWidth * ActiveSlideNum + "px)");
+		$displaySlide.prev().addClass("js-btn-active");
+	}
+	toggleChangeBtn();
+});
+
+//index-btnクラスを持つボタンをクリックした時の処理
+$(".index-btn").click(function () {
+	var clickedIndex = $(".index-btn").index($(this));
+
+	$(".js-btn-active").removeClass("js-btn-active");
+	$(".index-btn").eq(clickedIndex).addClass("js-btn-active");
+
+	ActiveSlideNum = clickedIndex;
+	$("li").css("transform","translateX(" + -imgWidth * ActiveSlideNum + "px)");
+	toggleChangeBtn();
+});
+
+</script>
+{% endcomment %}
+
+
+{% schema %}
+{
+        "blocks": [
+            {
+                "type": "text",
+                "name": "citron_category",
+                "settings": [
+                    {
+                        "id": "slide_image",
+                        "type": "image_picker",
+                        "label": "Slide Image"
+                    },
+                    {
+                        "id": "slide_title",
+                        "type": "text",
+                        "label": "Slide Title"
+                    },
+                    {
+                        "id": "slide_text",
+                        "type": "text",
+                        "label": "Slide Text"
+                    },
+                    {
+                        "id": "slide_link",
+                        "type": "text",
+                        "label": "Slide Link text"
+                    },
+                    {
+                        "id": "slide_color",
+                        "type": "color",
+                        "label": "Color picker"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}
