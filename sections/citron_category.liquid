@@ -12,12 +12,19 @@
   {% endfor %}
   {% endcomment %}
   {% for product in collections %}
-  <li style="list-style-type:none;">
-    <div class="carousel-cell">
-      <img class="category_img" src="{{product.image | img_url: '2048x' }}" style="width:60%;height:auto;" >
-      <p style="color:#004c3d">{{product.title}}</p> 
-    </div>
-  </li>
+  {% comment %}
+  <!-->product.image != nullと一緒<-->
+  {% endcomment %}
+    {% if product.image %}
+      <li style="list-style-type:none;">
+        <div class="carousel-cell">
+          <a href="{{product.url}}" style="text-decoration: none;">
+            <img class="category_img" src="{{product.image | img_url: '2048x' }}" style="width:60%;height:auto;" >
+            <p style="color:#004c3d">{{product.title}}</p>
+          </a>
+        </div>
+      </li>
+    {% endif %}
   {% endfor %}
 </div>
 

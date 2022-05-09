@@ -5,23 +5,16 @@ background-color:#EDE2CA;
   background: {{'bg_ryushi.png' | asset_url }} ;
   background-repeat: repeat;
 }
-.slides {
-  list-style-type:none;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: space-around;
-  justify-content: space-around;	position: absolute;
-	overflow: hidden;
-	width: 120%;
 
-}
+/*all-section css*/
+.all-sec{
+  margin-top:25px;
+ }
+.all-sec btn{
+  text-align:center;
 
-li {
-	transform: translateX(0px);
-	transition: 1s;
-}
-
-
+ }
+/* スライドショーセクション */
 /* external css: flickity.css */
 
 * { box-sizing: border-box; }
@@ -46,6 +39,7 @@ body { font-family: sans-serif; }
   background: #ED2;
 }
 
+
 /* cell number */
 /*
 .carousel-cell:before {
@@ -57,3 +51,84 @@ body { font-family: sans-serif; }
   color: white;
 }
 */
+
+/*おすすめセクション*/
+.recommend{
+  margin-top:50px;
+  background-image:url({{'title_recommend_01.png' | asset_url}});
+  background-repeat:no-repeat;
+  background-size: 100%;
+  padding-top:125px;
+ }
+
+ .rec-content{
+   margin-left:10px;
+   maring-right:10px;
+   font-size:10px;
+  }
+
+.box-row {
+  display: flex;
+  flex-wrap: wrap;
+  padding-right:3%;
+  padding-left:3%;
+  justify-content: center;
+}
+.box-item {
+  padding: 5px;
+  margin:1%;
+  width: 45%;
+  background-color:#004c3d;
+  border-radius:10px 10px 10px 10px;
+  color:white;
+}
+.box-item img{
+  border-radius:10px 10px 10px 10px;
+}
+.box-row img {
+	width: 100%;
+}
+@media not all and (min-width: 768px) {
+  .item {
+    width: 100%;
+  }
+}
+
+/*その他と主な共通部分は省略*/
+a.btn{
+  display:flex;
+  margin:20px auto;
+  width:60%;
+  height:70%;
+  text-decoration: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+ }
+a.btn-gradient {
+  font-size: 20px;
+  color: #fff;
+  border-radius: 100vh;
+  background-color:#004c3d;
+  /*
+  background-image: -webkit-linear-gradient(110deg, #004c3d 0%, #6B978E 100%);
+  background-image: linear-gradient(-20deg, #004c3d 0%, #6B978E 100%);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+a.btn-gradient span {
+  /*
+  background-image: -webkit-gradient(linear, left top, right top, from(#93a5cf), to(#e4efe9));
+  background-image: -webkit-linear-gradient(left, #93a5cf 0%, #e4efe9 100%);
+  background-image: linear-gradient(to right, #93a5cf 0%, #e4efe9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    */
+}
+
+a.btn-gradient:hover {
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+}
