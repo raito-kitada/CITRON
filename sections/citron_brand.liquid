@@ -1,0 +1,52 @@
+{% assign collection = collections %}
+{% assign brand_flag = 0 %}
+<div class="all-sec brand" >
+  <img srcset="{{'title_brands_01.png' | asset_url }}" style="width:100%;height:auto;	vertical-align:top;">
+
+  <!--img src="{{'title_ranking_01.png' | asset_url}}" style="z-index:-1;width:100%;"-->
+    <div class="box-row" style="background-color:#EECFC6;background-clip: content-box ;position:relative;">
+      <!--div style="background:#EECFC6;width:95%;"-->
+      {% for product in collection %}
+      {% assign brand_name =  product.image | img_url: '2048x' %}
+      {% if  brand_name contains "brand" %}
+        {% comment %} 表示数を数える {% endcomment %}
+        {% assign brand_flag = brand_flag | plus : 1 %}
+        {% if brand_flag <= 4 %}
+          {% if product.image == nil %}
+              <figure class="box-item"><img src="noImage.jpg">
+                {{product.title}}
+                {{product.description}}
+              </figure>
+            {% else %}
+        	    <div class="box-item">
+                <a href="{{product.url}}" style="text-decoration:none;z-index:100; ">
+                  <img src="{{product.image | img_url: '300x' }}">
+                  <div class="rec-content" style=" ">
+                    <div style="color:white;font-size:12px;display:block;">{{product.title}}</div>
+                    {% comment %} line-height:1で行間をなくす 　height:25px;がないとoverflow:hiddenができない{% endcomment %}
+                    <div style="color:white;font-size:12px;display:flex;height:25px;line-height:2;overflow:hidden;">
+                      {{product.handle}}
+                    </div>
+                    <div id="rank-price" style="color:white;font-size:12px;display:block;"></div>
+                    <script>
+                    /*
+                      var price = {{product.price}};
+                      price = `¥ ${price.toLocaleString()}`
+                      //console.log("rec-price"+`¥ ${price.toLocaleString()}`);
+                      var elements = document.getElementById('rank-price');
+                      elements.textContent = price;
+                      */
+                    </script>
+                  </div>
+                </a>
+              </div>
+          {% endif %}
+        {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  <div style="text-align:center;position:relative;height:10vh;">
+    <a href="{{collection.url}}" class="btn btn-gradient" style="background:#eecfc6;color:#cb807d;"><span>View more</span></a>
+  </div>
+<!--/div-->
+</div>

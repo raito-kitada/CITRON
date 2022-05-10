@@ -227,7 +227,7 @@
 
   </head>
 
-  <body class="gradient raito" style=" background: {{'bg_ryushi.png' | asset_url }};z-index:100">
+  <body class="gradient raito" >
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
@@ -243,6 +243,10 @@
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {% section 'citron_category'%}
       {% section 'citron_recommend' %}
+      {% section 'citron_ranking' %}
+      {% section 'citron_brand' %}
+
+
       {{ content_for_layout }}
     </main>
 

@@ -1,12 +1,12 @@
-{% assign collection = collections["おすすめ"] %}
-{% assign rec_flag = 0 %}
-<div class="all-sec recommend" >
-  <!--img src="{{'title_recommend_01.png' | asset_url}}" style="z-index:-1;width:100%;"-->
+{% assign collection = collections["ランキング"] %}
+{% assign rank_flag = 0 %}
+<div class="all-sec ranking" >
+  <!--img src="{{'title_ranking_01.png' | asset_url}}" style="z-index:-1;width:100%;"-->
     <div class="box-row">
       {% for product in collection.products %}
         {% comment %} 表示数を数える {% endcomment %}
-        {% assign rec_flag = rec_flag | plus : 1 %}
-        {% if rec_flag <= 4 %}
+        {% assign rank_flag = rank_flag | plus : 1 %}
+        {% if rank_flag <= 4 %}
           {% if product.featured_image == nil %}
               <figure class="box-item"><img src="noImage.jpg">
                 {{product.vendor}}
@@ -23,12 +23,12 @@
                     <div style="color:white;font-size:12px;display:flex;height:25px;line-height:1;overflow:hidden;">
                       {{product.title}}
                     </div>
-                    <div id="rec-price" style="color:white;font-size:12px;display:block;"></div>
+                    <div id="rank-price" style="color:white;font-size:12px;display:block;"></div>
                     <script>
                       var price = {{product.price}};
                       price = `¥ ${price.toLocaleString()}`
                       //console.log("rec-price"+`¥ ${price.toLocaleString()}`);
-                      var elements = document.getElementById('rec-price');
+                      var elements = document.getElementById('rank-price');
                       elements.textContent = price;
                     </script>
                   </div>
@@ -42,28 +42,23 @@
     <a href="{{collection.url}}" class="btn btn-gradient"><span>View more</span></a>
   </div>
 </div>
-
-
 {% comment %}
-<ul id="productsList">
-{% for product in collection.products %}
-  {% if product.available %}
-  <li class="product-item">
-    {% if product.featured_image == nil %}
-      <figure class="product-thumbnail"><img src="noImage.jpg"></figure>
-    {% else %}
-      <figure class="product-thumbnail"><img src="{{ product.featured_image | img_url:'300x' }}"></figure>
-    {% endif %}
-    <h3 class="product-title">{{ product.title }}</h3>
-    <div class="product-price">
-      {% if product.price_varies %}
-        {{ product.price_min | money }} 〜 {{ product.price_max | money }}
-      {% else %}
-        {{ product.price | money }}
-      {% endif %}
+
+    <div class="carousel" data-flickity='{ "groupCells": 3.5 }' >
+      {% for product in collection.products %}
+        {% if product.image %}
+          <li style="list-style-type:none;width:24%;">
+            <div class="carousel-cell">
+              <a href="{{product.url}}" style="text-decoration: none;">
+                <img class="category_img" src="{{product.image | img_url: '2048x' }}" style="width:60%;height:auto;" >
+                <p style="color:#004c3d">{{product.title}}</p>
+              </a>
+            </div>
+          </li>
+        {% endif %}
+      {% endfor %}
     </div>
-  </li>
-  {% endif %}
-{% endfor %}
-</ul>
-{% endcomment %}
+  <div style="text-align:center;position:relative;height:10vh;">
+    <a href="{{collection.url}}" class="btn btn-gradient"><span>View more</span></a>
+  </div>
+  {% endcomment %}
