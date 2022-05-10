@@ -2,7 +2,7 @@
 background-color:#EDE2CA;
 }
 .bg_img::after {
-  background: {{'bg_ryushi.png' | asset_url }} ;
+  background-image:url({{'bg_ryushi.png' | asset_url }});
   background-repeat: repeat;
 }
 
@@ -12,8 +12,12 @@ background-color:#EDE2CA;
  }
 .all-sec btn{
   text-align:center;
+ }
+.ryushi{
+  background-image:url({{'bg_ryushi.png' | asset_url }});
 
  }
+
 /* スライドショーセクション */
 /* external css: flickity.css */
 
@@ -52,31 +56,20 @@ body { font-family: sans-serif; }
 }
 */
 
-/*おすすめセクション*/
-.recommend{
-  margin-top:50px;
-  background-image:url({{'title_recommend_01.png' | asset_url}});
-  background-repeat:no-repeat;
-  background-size: 100%;
-  padding-top:125px;
- }
-
- .rec-content{
-   margin-left:10px;
-   maring-right:10px;
-   font-size:10px;
-  }
 
 .box-row {
+  margin-top:25px;
   display: flex;
   flex-wrap: wrap;
-  padding-right:3%;
-  padding-left:3%;
+  padding:3%;
   justify-content: center;
+  border-radius:30px;
+  z-index:1;
 }
 .box-item {
   padding: 5px;
-  margin:1%;
+  /*下のmargin×4＋width×2＝100%　となるようにする*/
+  margin:2.5%;
   width: 45%;
   background-color:#004c3d;
   border-radius:10px 10px 10px 10px;
@@ -93,6 +86,9 @@ body { font-family: sans-serif; }
     width: 100%;
   }
 }
+
+
+
 
 /*その他と主な共通部分は省略*/
 a.btn{
@@ -131,4 +127,63 @@ a.btn-gradient span {
 a.btn-gradient:hover {
   -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
   box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+}
+
+
+/*おすすめセクション*/
+.recommend{
+  margin-top:50px;
+  background-image:url({{'title_recommend_01.png' | asset_url}});
+  background-repeat:no-repeat;
+  background-size: 100%;
+  padding-top:125px;
+ }
+
+ .rec-content{
+   margin-left:10px;
+   maring-right:10px;
+   font-size:10px;
+  }
+
+  /*ランキングセクション*/
+.ranking{
+  margin-top:75px;
+  background-image:url({{'title_ranking_01.png' | asset_url}});
+  background-repeat:no-repeat;
+  background-size: 100%;
+  padding-top:125px;
+ }
+
+/*ブランドセクション*/
+.brand{
+  margin-top:25px;
+  background-color:#CB807D;
+  background-repeat:no-repeat;
+  background-size: 100%;
+  padding-top:0px;
+  position:relative;
+  /*z-index:-2;*/
+ }
+ /*粒子を表示できるがaタグがクリックできなくなる*/
+ .brand::before {
+   font-size:20px;
+   background:url({{'bg_ryushi.png' | asset_url }});
+   position:absolute;
+   content: '';
+   left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /*z-index:-1;*/
+}
+
+.brand .box-item {
+  padding: 5px;
+  /*下のmargin×4＋width×2＝100%　となるようにする*/
+  margin:2.5%;
+  width: 45%;
+  background-color:#DF9795;
+  z-index:0;
+  border-radius:10px 10px 10px 10px;
+  color:white;
 }
