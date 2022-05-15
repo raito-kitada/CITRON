@@ -227,7 +227,7 @@
 
   </head>
 
-  <body class="gradient raito" >
+  <body class="gradient raito-body" >
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
@@ -240,11 +240,12 @@
     {% section 'citron_top' %}
     {% section 'citron_arrow' %}
 
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <main id="MainContent" class="content-for-layout focus-none raito" role="main" tabindex="-1">
       {% section 'citron_category'%}
       {% section 'citron_recommend' %}
       {% section 'citron_ranking' %}
       {% section 'citron_brand' %}
+      {% section 'citron_journal' %}
 
 
       {{ content_for_layout }}

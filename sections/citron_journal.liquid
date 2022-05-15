@@ -1,0 +1,45 @@
+{% comment %}
+blog名がわからないと使えない
+{% endcomment %}
+<div class="all-sec journal" >
+  <img srcset="{{'title_journal_01.png' | asset_url }}" style="width:100%;height:auto;	vertical-align:top;">
+    <div class="box-row">
+      {% for article in blogs["journal"].articles %}
+        {% comment %} 表示数を数える {% endcomment %}
+        {% assign journal_flag = journal_flag | plus : 1 %}
+        {% if journal_flag <= 4 %}
+          {% if article.image == nil %}
+              <figure class="box-item"><img src="noImage.jpg">
+                {{article.vendor}}
+                {{article.title}}
+                {{article.price}}
+              </figure>
+            {% else %}
+        	    <div class="journal-box-item">
+                <a href="{{article.url}}" style="text-decoration: none;">
+                  <div class="jour-content" style="background:url({{article.image.src | img_url: '300x' }});">
+                    <img src="{{article.image.src | img_url: '300x' }}" style="">
+                    {% comment %} line-height:1で行間をなくす 　height:25px;がないとoverflow:hiddenができない{% endcomment %}
+                    <div class="img-text-background">
+                      <div class="img-text">
+                        <div style="color:white;font-size:12px;display:block;
+                        height:25px;line-height:1;overflow:hidden;">
+                          {{article.title}}
+                        </div>
+                        <div style="color:white;font-size:8px;display:block;
+                          height:16px;line-height:2;font-family: Futura;">
+                          {{article.author}} | {{ article.created_at | date: format:"basic" }}
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                </a>
+              </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div style="text-align:center;position:relative;height:10vh;">
+      <a href="{{collection.url}}" class="btn btn-gradient" style="background:#3894B3;"><span>View more</span></a>
+    </div>
+</div>
