@@ -1,10 +1,38 @@
- .raito{
-background-color:#EDE2CA;
+.raito-body{
+  /*headerとスライドショーの余白を消す
+  position:relative;
+  擬似要素afterの部分にposition:absolute;を入れることで背景を重ねられる。
+  */
+  background-color:#EDE2CA;
 }
-.bg_img::after {
-  background-image:url({{'bg_ryushi.png' | asset_url }});
-  background-repeat: repeat;
+ /*
+.raito-body::after {
+   font-size:20px;
+   background:url({{'bg_ryushi.png' | asset_url }});
+   position:absolute;
+   content: '';
+   left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}*/
+
+.raito{
+  background-color:#EDE2CA;
+  position:relative;
+
 }
+/*
+.raito::after {
+  font-size:20px;
+  background:url({{'bg_ryushi.png' | asset_url }});
+  position:absolute;
+  content: '';
+  left: 0;
+ right: 0;
+ top: 0;
+ bottom: 0;
+}*/
 
 /*all-section css*/
 .all-sec{
@@ -130,6 +158,7 @@ a.btn-gradient:hover {
 }
 
 
+
 /*おすすめセクション*/
 .recommend{
   margin-top:50px;
@@ -187,3 +216,70 @@ a.btn-gradient:hover {
   border-radius:10px 10px 10px 10px;
   color:white;
 }
+
+/*ジャーナルセクション*/
+.journal{
+  margin-top:0px;
+  background-color:#077AA0;
+  background-repeat:no-repeat;
+  background-size: 100%;
+  position:relative;
+  padding-top:0px;
+}
+ .journal::before {
+   font-size:20px;
+   background:url({{'bg_ryushi.png' | asset_url }});
+   position:absolute;
+   content: '';
+   left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /*z-index:-1;*/
+}
+
+.journal-box-item{
+  padding: 5px;
+  /*下のmargin×4＋width×2＝100%　となるようにする*/
+  margin:2.5%;
+  width: 90%;
+  border-radius:10px 10px 10px 10px;
+  position:relative;
+  color:white;
+ }
+ .journal-box-item img{
+     border-radius:10px 10px 10px 10px;
+  }
+
+ .jour-content{
+   font-size:10px;
+   /*background-color: black;*/
+   position:relative;
+   border-radius:10px 10px 10px 10px;
+
+  }
+  .jour-content::before {
+    font-size:20px;
+    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
+    border-radius:10px 10px 10px 10px;
+    position:absolute;
+    content: '';
+    left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   /*z-index:-1;*/
+  }
+
+
+.img-text{
+  position: absolute;
+  top: 75%;
+  height:100%;
+  width: 80%;
+  left: 10%;
+ }
+
+ .img-text-background{
+   background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
+ }
