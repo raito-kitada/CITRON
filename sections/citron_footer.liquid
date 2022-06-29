@@ -1,0 +1,10 @@
+<div class="all-sec citron_footer">
+  {% for policy in shop.policies %}
+    {{ policy.title }}
+    {% if forloop.length != forloop.index%}
+    |
+    {% endif %}
+  {% endfor %}
+  <br>
+  @2022 CITRON
+</div>
