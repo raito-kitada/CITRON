@@ -16,14 +16,14 @@
     var top = $(this).scrollTop();
     var scrollarrow = this.innerHeight  + top - this.innerHeight*0.5;
 
-    console.log(top_img.offset().top+top_img.height()*0.6);
+    //console.log(top_img.offset().top+top_img.height()*0.6);
     if(scrollarrow < top_img.offset().top+top_img.height()*0.6 ){
-      console.log(top_img.offset().top+top_img.height()*0.6);
+      //console.log(top_img.offset().top+top_img.height()*0.6);
       $('.scroll').css('top',top_img.offset().top+top_img.height()*0.6);
     }
     else{
       // windowがスクロールされた時に実行する処理、元のトップからいくら、スクロールされている画面か
-      console.log("画面位置"+$(this).scrollTop());
+      //console.log("画面位置"+$(this).scrollTop());
       $('.scroll').css('top',scrollarrow);
     }
     });

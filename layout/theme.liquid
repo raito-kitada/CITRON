@@ -211,6 +211,8 @@
     </script>
 
     {{ 'raito.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'raito.js' | asset_url }}"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!--script src="https://code.jquery.com/jquery-migrate-3.4.0.js"></script-->
     {% comment %}
@@ -236,11 +238,11 @@
     {% comment %}
     {{ 'top_image.png' | asset_url | img_tag }}
     //トップ画像挿入
-    {% section 'citron_topback'%}
 
     {% endcomment %}
     {% section 'citron_top' %}
     {% section 'citron_scrollarrow' %}
+    {% section 'citron_topback'%}
     <main id="MainContent" class="content-for-layout focus-none raito" role="main" tabindex="-1">
       {% section 'citron_category'%}
       {% section 'citron_recommend' %}
