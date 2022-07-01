@@ -1,29 +1,85 @@
 <div >
-<img class="topback" srcset="{{'topback.png' | asset_url }}" style="position:absolute;right:4%;width:10%;z-index:10;"  >
+<img id="topback" srcset="{{'topback.png' | asset_url }}" style="position:absolute;right:4%;width:10%;z-index:10;"  >
 </div>
 <script>
-/*
-  const obj1 = {name:"apple",color:"red",type:"fruit"};
-  $.each(obj1, function(index, value) {
-  console.log(index + '= ' + value);
-  })
-  console.log('obj=%o',obj1);
+/*raito.jsに移行
+  const phight = document.body.clientHeight;
+  console.log(phight);
+  const PageTopBtn = document.getElementById("topback");
 
-
-
-  $('.scroll').css('top',scrollarrow_first);
-  const topback = document.querySelector('.topback')
+ //document.getElementById("topback").style.top(phight.toString()+"px");
+  $("#topback").css({"top":phight.toString()+"px"});
   $(window).scroll(function() {
+    // windowがスクロールされた時に実行する処理
+    let scroll = $(this).scrollTop();
+    console.log(scroll);
 
-    var top = $(this).scrollTop();
-    var scrollarrow = this.innerHeight  + top - this.innerHeight*0.5;
-    if(scrollarrow < top_img.offset().top+top_img.height()*0.6 ){
-      $('.scroll').css('top',top_img.offset().top+top_img.height()*0.6);
-    }
-    else{
-      // windowがスクロールされた時に実行する処理、元のトップからいくら、スクロールされている画面か
-      $('.scroll').css('top',scrollarrow);
-    }
+});
+  //console.log(PageTopBtn);
+  //PageTopBtnがクリックされると以下のイベント発動
+  PageTopBtn.addEventListener('click', () =>{
+    console.log("topbtnクリックされた");
+    window.scrollTo({
+      top:0,
+      behavior:'smooth'
     });
-    */
+  });
+*/
+
+
+  /*
+  //topbackボタンを押すと戻る,数字の部分で戻りの速さを指定している
+  Topback('topback',150);
+
+  function Topback(el,duration){
+    const target = document.getElementById('topback');
+    //targetがクリックされると以下のイベント発動
+    target.addEventListener('click',function(){
+    //現在のスクロール量
+    let currentY = window.pageYOffset
+    console.log("スクロール量="+currentY);
+    //三項演算子「条件式 ? 条件が正しいときの値 : 条件が間違っているときの値」
+    let step = duration / currentY > 1 ? 10  : 100;
+    console.log("step="+step);
+
+    //スクロール時間
+    let timeStep = duration/currentY * step;
+    console.log("timeStep="+timeStep);
+
+    //timeStepの間隔でscrollUpを繰り返す
+    //clerIntervalのために返り値intervalIDを定義する
+    let intervalid = setInterval(scrollUp,timeStep);
+
+    function scrollUp(){
+      currentY = window.pageYOffset;
+      if(currentY === 0){
+        clearInterval(intervalId);//ページ上部に来たら終了
+      }else{
+        scrollBy(0,-step);
+      }
+    }
+
+    }
+  );
+  }
+  */
+  /*
+  window.onload = function(){
+    let animation = function(){
+      //トップボタン位置を取得
+      let Topback =
+      console.log("topback="+Topback)
+      //要素の位置座標を取得
+      let rect = Topback.getBoundingClientRect();
+      console.log("rect="+rect)
+
+      //ページ上部からの距離
+      let margin_top = rect.top+window.pageYOffset;
+
+      if(margin_top > )
+    }
+  }
+  */
+
+
 </script>
