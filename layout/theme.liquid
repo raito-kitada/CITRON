@@ -234,12 +234,14 @@
       {{ "accessibility.skip_to_text" | t }}
     </a>
 
-    {% section 'header' %}
     {% comment %}
+    {% section 'header' %}
     {{ 'top_image.png' | asset_url | img_tag }}
     //トップ画像挿入
 
     {% endcomment %}
+    {% section 'citron_header' %}
+    
     {% section 'citron_top' %}
     {% section 'citron_scrollarrow' %}
     {% section 'citron_topback'%}

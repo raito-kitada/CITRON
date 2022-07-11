@@ -34,6 +34,9 @@
  bottom: 0;
 }*/
 
+
+
+
 /*all-section css*/
 .all-sec{
   margin-top:25px;
@@ -45,6 +48,70 @@
   background-image:url({{'bg_ryushi.png' | asset_url }});
 
  }
+
+/*headerセクション*/
+.citron_header{
+  position:fixed;
+  top:0;
+  width:100%;
+
+  display:block;
+  z-index:998;
+ }
+
+ .citron_header_title{
+   position:fixed;
+   left:50%;
+   transform:translateX(-50%);
+   width:30%;
+   height:auto;
+   display:block;
+   z-index:999;
+  }
+
+  .cart_top{
+    position:fixed;
+    left:5%;
+    display:block;
+    z-index:999;
+   }
+   .cart_top a{
+     color:#FCEBB6;
+   }
+  .cart_top a:visited{
+    color:#FCEBB6;
+  }
+  @media (max-width: 520px) {
+     /* 横幅が520px以下の場合に適用するスタイル */
+     .citron_header { height:7%;}
+     .citron_header_title,.cart_top { top:2%;}
+  }
+  @media (min-width: 520px) {
+     /* 横幅が520px以上の場合に適用するスタイル */
+     .citron_header { height:10%; }
+     .citron_header_title,.cart_top{ top:3%;}
+  }
+
+  @media (min-width: 740px) {
+     /* 横幅が740px以上の場合に適用するスタイル */
+     .citron_header { height:15%; }
+     .citron_header_title,.cart_top { top:5%;}
+
+  }
+/*topイメージ*/
+.top_img{
+  margin-top;
+ }
+/*スクロールセクション*/
+.scroll_in {
+  animation-name: scrollAnime;
+  animation-duration: 1s;
+  animation-iteration-count: altenate;
+}
+@keyframes scrollAnime {
+    0%{opacity:0%;}
+    100%{opacity:100%;}
+}
 
 /* スライドショーセクション */
 /* external css: flickity.css */

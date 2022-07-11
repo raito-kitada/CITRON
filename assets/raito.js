@@ -6,7 +6,8 @@ window.addEventListener("DOMContentLoaded",function(){
   //footer要素のちょうど上にtopbackボタンを設置するための高さを取得
   const topback_pos=footer_offset.top-topbackimg_height;
   $("#topback").css({"top":topback_pos.toString()+"px"});
-  //console.log(PageTopBtn); 
+
+  //console.log(PageTopBtn);
   //PageTopBtnがクリックされると以下のイベント発動
   const PageTopBtn = document.getElementById("topback");
   PageTopBtn.addEventListener('click', () =>{
@@ -16,5 +17,16 @@ window.addEventListener("DOMContentLoaded",function(){
     });
   });
 
+  const window_height= $(window).height();
 
+  $(window).scroll(function() {
+    var top = $(this).scrollTop();
+    if(top>footer_offset.top - window_height - 100){
+
+      $("#topback").css({"display":""});
+      $("#topback").addClass("scroll_in");
+
+    }
+
+  });
 });
