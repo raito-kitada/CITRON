@@ -1,5 +1,5 @@
 <div >
-<img class="scroll" srcset="{{'scrollarrow_01.png' | asset_url }}" style="position:absolute;left:4%;width:10%;"  >
+<img class="scroll " srcset="{{'scrollarrow_01.png' | asset_url }}" style="position:absolute;left:4%;width:10%;display:none;"  >
 </div>
 <script>
 /*
@@ -11,8 +11,14 @@
   */
   var top_img = $('.top_img');
   var scrollarrow_first=top_img.offset().top+top_img.height()*0.7
-  $('.scroll').css('top',scrollarrow_first);
+  $('.scroll').css({'top':scrollarrow_first});
   $(window).scroll(function() {
+    //fadein機能
+    $(".scroll").css({"display":""});
+    $(".scroll").addClass("scroll_in");
+    //fadein機能
+    
+    //スクロール追跡機能
     var top = $(this).scrollTop();
     var scrollarrow = this.innerHeight  + top - this.innerHeight*0.5;
 

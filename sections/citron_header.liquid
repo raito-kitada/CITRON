@@ -1,0 +1,17 @@
+  <img class="citron_header" srcset="{{'citron_header_bg.png' | asset_url }}">
+  <img class="citron_header_title" srcset="{{'citron_header_title.png' | asset_url }}">
+  <div class="cart_top">
+    <a href="https://citron.fun/cart/" style="text-decoration: none;">
+      Cart ({{ cart.item_count }})
+    </a>
+  </div>
+  <script>
+/*
+  // スクロールされた時に実行する処理
+    $(window).scroll(function() {
+      var top_offset = $(this).scrollTop();
+        //console.log("画面位置"+$(this).scrollTop());
+        $('.citron_header').css('top',top_offset);
+      });
+      */
+  </script>
