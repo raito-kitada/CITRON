@@ -1,17 +1,30 @@
-  <img class="citron_header" srcset="{{'citron_header_bg.png' | asset_url }}">
-  <img class="citron_header_title" srcset="{{'citron_header_title.png' | asset_url }}">
-  <div class="cart_top">
-    <a href="https://citron.fun/cart/" style="text-decoration: none;">
-      Cart ({{ cart.item_count }})
-    </a>
-  </div>
-  <script>
+<img class="citron_header" srcset="{{'citron_header_bg.png' | asset_url }}" >
+<a href="https://citron.fun" ><img class="citron_header_title" srcset="{{'citron_header_title.png' | asset_url }}"></a>
+  <a class='cart_top' href="https://citron.fun/cart/" style="text-decoration: none;">
+    Cart ({{ cart.item_count }})
+  </a>
+
+<nav class='header-nav' id='js-nav' style='visibility;hidden'>
+  <ul class='nav-items'>
+    <p class="nav-items_item"><a href="">メニュー</a></p>
+    <p class="nav-items_item"><a href="">メニュー</a></p>
+    <p class="nav-items_item"><a href="">メニュー</a></p>
+    <p class="nav-items_item"><a href="">メニュー</a></p>
+  </ul>
+</nav>
+{%comment%}
+<a>タグを使うと固定の高さができる
+{% endcomment%}
+<a class='header-hamburger hamburger ' id='js-hamburger'>
+   Menu +
+</a>
+<script>
 /*
-  // スクロールされた時に実行する処理
-    $(window).scroll(function() {
-      var top_offset = $(this).scrollTop();
-        //console.log("画面位置"+$(this).scrollTop());
-        $('.citron_header').css('top',top_offset);
-      });
-      */
-  </script>
+// スクロールされた時に実行する処理
+  $(window).scroll(function() {
+    var top_offset = $(this).scrollTop();
+      //console.log("画面位置"+$(this).scrollTop());
+      $('.citron_header').css('top',top_offset);
+    });
+    */
+</script>
