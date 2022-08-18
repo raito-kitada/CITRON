@@ -81,27 +81,34 @@
   .cart_top a:visited{
     color:#FCEBB6;
   }
+  .header-hamburger{
+    position:fixed;
+    right:5%;
+    display:block;
+    z-index:999;
+  }
   @media (max-width: 520px) {
      /* 横幅が520px以下の場合に適用するスタイル */
      .citron_header { height:7%;}
-     .citron_header_title,.cart_top { top:2%;}
+     .citron_header_title,.cart_top,.header-hamburger { top:2%;}
   }
   @media (min-width: 520px) {
      /* 横幅が520px以上の場合に適用するスタイル */
      .citron_header { height:10%; }
-     .citron_header_title,.cart_top{ top:3%;}
-  }
 
+     .citron_header_title,.cart_top,.header-hamburger{ top:3%;}
+  }
   @media (min-width: 740px) {
      /* 横幅が740px以上の場合に適用するスタイル */
      .citron_header { height:15%; }
-     .citron_header_title,.cart_top { top:5%;}
-
+     .citron_header_title,.cart_top,.header-hamburger{ top:5%;}
   }
-/*topイメージ*/
+
+
+/*topイメージ
 .top_img{
-  margin-top;
- }
+  margin-top:;
+ }*/
 /*スクロールセクション*/
 .scroll_in {
   animation-name: scrollAnime;
