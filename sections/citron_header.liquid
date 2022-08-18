@@ -1,19 +1,23 @@
-<img class="citron_header" srcset="{{'citron_header_bg.png' | asset_url }}">
-<img class="citron_header_title" srcset="{{'citron_header_title.png' | asset_url }}">
-<div class="cart_top">
-  <a href="https://citron.fun/cart/" style="text-decoration: none;">
+<img class="citron_header" srcset="{{'citron_header_bg.png' | asset_url }}" >
+<a href="https://citron.fun" ><img class="citron_header_title" srcset="{{'citron_header_title.png' | asset_url }}"></a>
+  <a class='cart_top' href="https://citron.fun/cart/" style="text-decoration: none;">
     Cart ({{ cart.item_count }})
   </a>
-</div>
 
-<nav class='header-nav' id='js-nav'>
+<nav class='header-nav' id='js-nav' style='visibility;hidden'>
   <ul class='nav-items'>
+    <p class="nav-items_item"><a href="">メニュー</a></p>
+    <p class="nav-items_item"><a href="">メニュー</a></p>
+    <p class="nav-items_item"><a href="">メニュー</a></p>
+    <p class="nav-items_item"><a href="">メニュー</a></p>
   </ul>
 </nav>
-
-<button class='header-hamburger' id='js-hamburger'>
-  Menue +
-</button>
+{%comment%}
+<a>タグを使うと固定の高さができる
+{% endcomment%}
+<a class='header-hamburger hamburger ' id='js-hamburger'>
+   Menu +
+</a>
 <script>
 /*
 // スクロールされた時に実行する処理

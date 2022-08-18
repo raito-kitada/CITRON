@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded",function(){
+$(document).ready(function(){
   //topbackボタンも大きさ取得
   const topbackimg_height=$("#topback").height();
   //footerまでの高さを取得
