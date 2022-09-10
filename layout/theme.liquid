@@ -234,25 +234,29 @@
     </a>
 
     {% comment %}
-    {% section 'header' %}
-    {{ 'top_image.png' | asset_url | img_tag }}
-    //トップ画像挿入
-
+    //以下でトップページのみ表示
+    {%- if template == 'index'-%}
+    {%- endif -%}
     {% endcomment %}
+
     {% section 'citron_header' %}
+    {%- if template == 'index'-%}
     {% section 'citron_top' %}
     {% section 'citron_scrollarrow' %}
     {% section 'citron_topback'%}
+    {%- endif -%}
     <main id="MainContent" class="content-for-layout focus-none raito" role="main" tabindex="-1">
+      {%- if template == 'index'-%}
       {% section 'citron_category'%}
       {% section 'citron_recommend' %}
       {% section 'citron_ranking' %}
       {% section 'citron_brand' %}
       {% section 'citron_journal' %}
       {% section 'citron_sns' %}
-
+      {%- endif -%}
       {{ content_for_layout }}
     </main>
+  
     {% section 'citron_footer'%}
     {% comment %}
     {% section 'footer' %}

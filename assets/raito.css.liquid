@@ -342,12 +342,16 @@ a.btn-gradient:hover {
  }
 
  .ranking .box-row{
+  display: flex;
   flex-wrap: nowrap;
-  overflow-x:scroll;
-  left:400px;
+  width:auto;
+  padding: 0;
+  overflow:scroll;
 }
 .ranking .box-item{
-  white-space:nowrap;
+  /*white-space:nowrap;*/
+  display: block;
+  flex-shrink: 0;
 }
 /*ブランドセクション*/
 .brand{
@@ -495,7 +499,8 @@ a.btn-gradient:hover {
  /*フッターセクション*/
  .citron_footer{
    margin-top:0px;
-   font-size:15px;
+   margin-bottom: ;
+   font-size:10px;
 
    background-color:#004c3d;
    background-repeat:no-repeat;
