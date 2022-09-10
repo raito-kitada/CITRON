@@ -1,5 +1,5 @@
 <div >
-<img class="scroll " srcset="{{'scrollarrow_01.png' | asset_url }}" style="position:absolute;left:4%;width:10%;display:none;"  >
+<img class="scroll" srcset ="{{'citron_top_text.png' | asset_url}}"style="position:absolute;left:4%;width:10%;display:none;width:30px;">
 </div>
 <script>
 /*
@@ -10,22 +10,21 @@
   console.log('obj=%o',obj1);
   */
   var top_img = $('.top_img');
-  var scrollarrow_first=top_img.offset().top+top_img.height()*0.7
+  var scrollarrow_first=top_img.offset().top+top_img.height();
   $('.scroll').css({'top':scrollarrow_first});
   $(window).scroll(function() {
     //fadein機能
     $(".scroll").css({"display":""});
     $(".scroll").addClass("scroll_in");
     //fadein機能
-    
     //スクロール追跡機能
     var top = $(this).scrollTop();
-    var scrollarrow = this.innerHeight  + top - this.innerHeight*0.5;
+    var scrollarrow = this.innerHeight  + top - this.innerHeight*0.6;
 
     //console.log(top_img.offset().top+top_img.height()*0.6);
-    if(scrollarrow < top_img.offset().top+top_img.height()*0.6 ){
+    if(scrollarrow < top_img.offset().top+top_img.height()*0.3 ){
       //console.log(top_img.offset().top+top_img.height()*0.6);
-      $('.scroll').css('top',top_img.offset().top+top_img.height()*0.6);
+      $('.scroll').css('top',top_img.offset().top+top_img.height()*0.3);
     }
     else{
       // windowがスクロールされた時に実行する処理、元のトップからいくら、スクロールされている画面か
